@@ -8,6 +8,7 @@ var gulp = require('gulp'),
   del = require('del'),
   ts = require('gulp-typescript'),
   typescript = require('typescript'),
+  merge = require('merge2'),
   watch = require('gulp-watch'),
   rename = require('gulp-rename'),
   replace = require('gulp-replace'),
@@ -30,11 +31,10 @@ function compileTS() {
     typescript: typescript,
     declarationFiles: true,
   });
-  console.log(options.globs.ts);
   gulp.src(options.globs.ts)
     .pipe(debug({ 'title': 'ts-compile:' }))
     .pipe(ts(tsProject))
-    .pipe(gulp.dest(jsOutput))
+    .pipe(gulp.dest(jsOutput + '/js'))
     .pipe(debug({ 'title': 'output:' }));
 }
 
@@ -42,26 +42,44 @@ function styles() {
   return gulp.src(options.globs.styl)
     .pipe(stylus({ set: ['compress', 'include css'] }))
     .pipe(debug({ 'title': 'source:' }))
-    .pipe(rename(function (path) {
-      // FIXME: Why do I need this hack?
-      path.dirname = path.dirname.split('\\').slice(1).join('\\');
-    }))
     .pipe(gulp.dest(jsOutput))
     .pipe(debug({ 'title': 'output:' }));
 }
 
 function images() {
   return gulp.src(options.globs.images)
+    .pipe(gulp.dest(jsOutput))
+    .pipe(debug({ 'title': 'output:' }));
+}
+
+function html() {
+  return gulp.src(options.globs.html)
     .pipe(rename(function (path) {
-      // FIXME: Why do I need this hack?
+      console.log(path.dirname);
       path.dirname = path.dirname.split('\\').slice(1).join('\\');
     }))
     .pipe(gulp.dest(jsOutput))
     .pipe(debug({ 'title': 'output:' }));
 }
 
+function resources() {
+  var res = options.globs.resources;
+  var streams = [];
+  var i;
+  function getResource(src, dest) {
+    streams.push(gulp.src(src)
+      .pipe(gulp.dest(dest))
+      .pipe(debug({ 'title': 'output:' }))
+      );
+  }
+  for (i = 0; i < res.length; i++) {
+    getResource(res[i].src, jsOutput + '/' + res[i].dest);
+  }
+  return merge(streams);
+}
+
 function build(cb) {
-  sequence('images', 'styles', 'compileTS')(cb);
+  sequence('html', 'images', 'styles', 'resources', 'compileTS')(cb);
 }
 
 function watchBuild() {
@@ -70,13 +88,14 @@ function watchBuild() {
 }
 
 function clean(cb) {
-
-  del([jsOutput], { force: jsOutput.substr(0, 7) === '../dist' }, cb);
+  del(jsOutput, { force: jsOutput.substr(0, 7) === '../dist' }, cb);
 }
 
 gulp.task('clean', clean);
 gulp.task('styles', styles);
 gulp.task('images', images);
+gulp.task('html', html);
+gulp.task('resources', resources);
 gulp.task('compileTS', compileTS);
 gulp.task('watch', ['clean'], watchBuild);
 gulp.task('build', ['clean'], build);

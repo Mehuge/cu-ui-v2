@@ -20,6 +20,7 @@
     "cu-fake-api": "git+https://github.com/Mehuge/cu-fake-api.git#master",
     "cu-stores": "git+https://github.com/Mehuge/cu-stores.git#master",
     "del": "^1.2.1",
+    "merge2": "^0.3.6",
     "gulp": "^3.9.0",
     "gulp-debug": "^2.1.0",
     "gulp-rename": "^1.2.2",

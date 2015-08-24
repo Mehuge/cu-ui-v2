@@ -12,8 +12,17 @@ module.exports = {
   name: projectName,
   globs: {
     ts: [ './src/ts/**/*.ts', './src/ts/**/*.tsx' ],
-    styl: [ './src/**/**.styl' ],
-    images: [ './src/**/**.png' ]
+    styl: [ './src/**/*.styl' ],
+    html: [ './src/**/*.html' ],
+    images: [ './src/**/*.png' ],
+    resources: [
+      { src: './node_modules/cu-components/lib/classes/unitframe.css', 
+        dest: 'cu-components' },
+      { src: './node_modules/cu-components/lib/classes/unitframe/images/*.png', 
+        dest: 'cu-components/unitframe/images' },
+      { src: './node_modules/cu-components/lib/classes/unitframe/images/portraits/*.jpg', 
+        dest: 'cu-components/unitframe/images/portraits' }
+    ]
   },
   publish: {
     jsOutput: '../dist/character',
