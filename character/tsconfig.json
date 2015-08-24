@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "outDir": "../dist/character",
+    "sourceMap": false,
+    "definition": true,
+    "jsx": "react"
+  }
+}

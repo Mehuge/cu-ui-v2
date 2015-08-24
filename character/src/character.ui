@@ -1,0 +1,11 @@
+{
+    "name": "character",
+    "mainFile": "character/index.html",
+    "rect": {
+        "left": 0,
+        "top": 0,
+        "right": 245,
+        "bottom": 125
+    },
+    "handlesCharacter": true
+}
