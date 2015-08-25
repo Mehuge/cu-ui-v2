@@ -17,11 +17,11 @@ module.exports = {
     images: [ './src/**/*.png' ],
     resources: [
       { src: './node_modules/cu-components/lib/classes/unitframe.css', 
-        dest: 'cu-components' },
+        dest: '../lib/cu-components' },
       { src: './node_modules/cu-components/lib/classes/unitframe/images/*.png', 
-        dest: 'cu-components/unitframe/images' },
+        dest: '../lib/cu-components/unitframe/images' },
       { src: './node_modules/cu-components/lib/classes/unitframe/images/portraits/*.jpg', 
-        dest: 'cu-components/unitframe/images/portraits' }
+        dest: '../lib/cu-components/unitframe/images/portraits' }
     ]
   },
   publish: {
