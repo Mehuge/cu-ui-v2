@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "name": "cu-ui-v2",
+  "version": "0.1.0",
+  "description": "",
+  "license": "MPL-2.0",
+  "main": "~",
+  "contributors": [
+    "mehuge <mehuge@sorcerer.co.uk>",
+    "saddieeiddas <saddie.eiddas@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mehuge/cu-ui-v2.git"
+  },
+  "dependencies": {
+    "cu-components": "git+https://github.com/Mehuge/cu-components.git#master"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "cu-ui-build-tools": "git+https://github.com/CUModSquad/cu-build-tools.git#master"
+  }
+}

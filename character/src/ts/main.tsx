@@ -1,4 +1,4 @@
-/// <reference path="definitions/tsd.d.ts" />
+/// <reference path="../tsd/tsd.d.ts" />
 import * as React from 'react';
 import * as Reflux from 'reflux';
 import * as cuAPI from 'cu-fake-api';
