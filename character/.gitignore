@@ -9,3 +9,4 @@ npm-debug.log
 /dist
 /publish
 /.vs
+/src/tsd
