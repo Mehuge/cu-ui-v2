@@ -9,3 +9,5 @@ npm-debug.log
 /dist
 /publish
 /.vs
+/lib/*
+!/lib/README.md

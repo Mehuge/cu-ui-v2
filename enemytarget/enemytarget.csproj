@@ -29,31 +29,10 @@
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="src\character.ui"/>
+    <Content Include="src\enemytarget.ui"/>
     <Content Include="src\index.html"/>
-    <Content Include="src\images\bar_health.png"/>
-    <Content Include="src\images\bar_mana.png"/>
-    <Content Include="src\images\bar_plate.png"/>
-    <Content Include="src\images\bg.png"/>
-    <Content Include="src\images\energy-bar.png"/>
-    <Content Include="src\images\frame.png"/>
-    <Content Include="src\images\health-bar.png"/>
-    <Content Include="src\images\stamina-bar.png"/>
-    <Content Include="src\sass\main.scss"/>
     <TypeScriptCompile Include="src\ts\main.tsx"/>
-    <Content Include="src\images\portraits\caitsith.jpg"/>
-    <Content Include="src\images\portraits\firbog.jpg"/>
-    <Content Include="src\images\portraits\frostgiant.jpg"/>
-    <Content Include="src\images\portraits\golem.jpg"/>
-    <Content Include="src\images\portraits\hamadryad.jpg"/>
-    <Content Include="src\images\portraits\helbound.jpg"/>
-    <Content Include="src\images\portraits\luchorpan.jpg"/>
-    <Content Include="src\images\portraits\stormridera.jpg"/>
-    <Content Include="src\images\portraits\stormridert.jpg"/>
-    <Content Include="src\images\portraits\stormriderv.jpg"/>
-    <Content Include="src\images\portraits\strm.jpg"/>
-    <Content Include="src\images\portraits\tuatha.jpg"/>
-    <Content Include="src\images\portraits\valkyrie.jpg"/>
+    <Content Include="src\sass\main.scss"/>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

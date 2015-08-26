@@ -11,4 +11,7 @@ module.exports = {
   publish: {
     dest: 'publish',
   },
+  build: {
+    ui_nested: false,
+  },
 };

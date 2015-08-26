@@ -1,7 +1,6 @@
 /// <reference path="../tsd/tsd.d.ts" />
 import * as React from 'react';
 import * as Reflux from 'reflux';
-import * as cuAPI from 'cu-fake-api';
 import events from 'cu-events';
 import { EnemyTargetStore } from 'cu-stores';
 import { UnitFrame } from 'cu-components';
