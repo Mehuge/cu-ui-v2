@@ -1,0 +1,11 @@
+{
+    "name": "enemytarget",
+    "mainFile": "enemytarget/index.html",
+    "rect": {
+        "left": 300,
+        "top": 9,
+        "right": 478,
+        "bottom": 168
+    },
+    "handlesEnemyTarget": true
+}
