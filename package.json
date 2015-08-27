@@ -17,7 +17,8 @@
     "cu-components": "git+https://github.com/Mehuge/cu-components.git#master"
   },
   "devDependencies": {
+    "cu-ui-build-tools": "git+https://github.com/CUModSquad/cu-build-tools.git#master",
     "gulp": "^3.9.0",
-    "cu-ui-build-tools": "git+https://github.com/CUModSquad/cu-build-tools.git#master"
+    "gulp-debug": "^2.1.0"
   }
 }
