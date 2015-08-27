@@ -39,5 +39,5 @@ const Character = React.createClass({
 });
 
 events.on("init", function() {
-	React.render(<Character/>, document.getElementById("main"));
+	React.render(<Character/>, document.getElementById("cse-ui-character"));
 });
