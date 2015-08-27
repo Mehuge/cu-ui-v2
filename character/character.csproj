@@ -31,6 +31,8 @@
   <ItemGroup>
     <Content Include="src\character.ui"/>
     <Content Include="src\index.html"/>
+    <Content Include="src\sass\main.scss"/>
+    <TypeScriptCompile Include="src\ts\main.tsx"/>
     <Content Include="src\images\bar_health.png"/>
     <Content Include="src\images\bar_mana.png"/>
     <Content Include="src\images\bar_plate.png"/>
@@ -39,8 +41,6 @@
     <Content Include="src\images\frame.png"/>
     <Content Include="src\images\health-bar.png"/>
     <Content Include="src\images\stamina-bar.png"/>
-    <Content Include="src\sass\main.scss"/>
-    <TypeScriptCompile Include="src\ts\main.tsx"/>
     <Content Include="src\images\portraits\caitsith.jpg"/>
     <Content Include="src\images\portraits\firbog.jpg"/>
     <Content Include="src\images\portraits\frostgiant.jpg"/>
