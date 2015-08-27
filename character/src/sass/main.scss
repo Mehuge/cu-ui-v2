@@ -1,5 +1,137 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+/* Compiles to: css/main.css */
+
 html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
+
+/* Target ONLY cse-ui-character contained elements */
+
+#cse-ui-character {
+
+    /*
+     * These styles overide the cbase unitframe.css styles defined by
+     * ../cu-lib/views/unitframe.css.  For the most part this means
+     * different position and sizes of the bars, and different artwork
+     * for the frame and bars.  And some different colours.  The fonts
+     * and other stuff are inherited from unitframe.css
+    */
+
+    #unitframe {
+        background: transparent url('../images/bg.png') no-repeat top left;
+        width: 217px;
+        height: 76px;
+        visibility: visible;            /* always visible! */
+    }
+
+    #unitframe:after {
+        top: 0;
+        content: url('../images/frame.png');
+        z-index: auto;
+    }
+
+    #portrait {
+        position: absolute;
+        top: 8px;
+        left: 2px;
+        width: 59px;
+        height: 59px;
+        background: transparent url() no-repeat top left;
+    }
+
+    #portrait.hamadryad   {
+        background: transparent url('../images/portraits/hamadryad.jpg') no-repeat top left;
+    }
+    #portrait.luchorpan   {
+        background: transparent url('../images/portraits/luchorpan.jpg') no-repeat top left;
+    }
+    #portrait.firbog      {
+        background: transparent url('../images/portraits/firbog.jpg') no-repeat top left;
+    }
+    #portrait.valkyrie    {
+        background: transparent url('../images/portraits/valkyrie.jpg') no-repeat top left;
+    }
+    #portrait.helbound    {
+        background: transparent url('../images/portraits/helbound.jpg') no-repeat top left;
+    }
+    #portrait.frostgiant  {
+        background: transparent url('../images/portraits/frostgiant.jpg') no-repeat top left;
+    }
+    #portrait.strm        {
+        background: transparent url('../images/portraits/strm.jpg') no-repeat top left;
+    }
+    #portrait.caitsith    {
+        background: transparent url('../images/portraits/caitsith.jpg') no-repeat top left;
+    }
+    #portrait.golem       {
+        background: transparent url('../images/portraits/golem.jpg') no-repeat top left;
+    }
+    #portrait.stormridert {
+        background: transparent url('../images/portraits/stormridert.jpg') no-repeat top left;
+    }
+    #portrait.stormridera {
+        background: transparent url('../images/portraits/stormridera.jpg') no-repeat top left;
+    }
+    #portrait.stormriderv {
+        background: transparent url('../images/portraits/stormriderv.jpg') no-repeat top left;
+    }
+    #portrait.humanmalev  {
+        background: transparent url('../images/character/portraits/humanmalev.jpg') no-repeat top left;
+    }
+    #portrait.humanmalea  {
+        background: transparent url('../images/character/portraits/humanmalea.jpg') no-repeat top left;
+    }
+    #portrait.humanmalet  {
+        background: transparent url('../images/character/portraits/humanmalet.jpg') no-repeat top left;
+    }
+
+    #name {
+        top: 8px;
+        left: 61px;
+        width: 165px;
+        height: 21px;
+        line-height: 21px;
+        padding-left: 5px;
+        color: #efefef;
+    }
+
+    #health-bar {
+        top: 30px;
+        left: 61px;
+        height: 26px;
+        background: transparent url('../images/health-bar.png') no-repeat top left;
+    }
+
+    #health-text {
+        top: 30px;
+        left: 61px;
+        height: 26px;
+        line-height: 26px;
+        color: #fff;
+    }
+
+    #stamina-bar {
+        top: 56px;
+        left: 61px;
+        height: 11px;
+        background: transparent url('../images/stamina-bar.png') no-repeat top left;
+    }
+
+    #stamina-text {
+        top: 56px;
+        left: 61px;
+    }
+
+    #effects {
+        top: 72px;
+        left: 15px;
+        width: 224px;
+    }
 }
