@@ -16,8 +16,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "cu-ui-build-tools": "git+https://github.com/CUModSquad/cu-build-tools.git#master",
-    "gulp": "^3.9.0",
-    "gulp-debug": "^2.1.0"
+    "cu-build-tools": "git+https://github.com/CUModSquad/cu-build-tools.git#master",
+    "gulp": "^3.9.0"
   }
 }
