@@ -14,11 +14,9 @@
     "url": "https://github.com/Mehuge/cu-ui-v2.git"
   },
   "dependencies": {
-    "cu-components": "git+https://github.com/Mehuge/cu-components.git#master"
   },
   "devDependencies": {
-    "cu-ui-build-tools": "git+https://github.com/CUModSquad/cu-build-tools.git#master",
-    "gulp": "^3.9.0",
-    "gulp-debug": "^2.1.0"
+    "cu-build-tools": "git+https://github.com/CUModSquad/cu-build-tools.git#master",
+    "gulp": "^3.9.0"
   }
 }

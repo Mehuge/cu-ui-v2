@@ -7,21 +7,9 @@
 'use strict';
 
 var gulp = require('gulp');
-var debug = require('gulp-debug');
 var buildConfig = require('./cu-build.config.js');
 var buildTools = require('cu-build-tools');
 
 // load build tool tasks and obtain processed build configuration
 var config = buildTools.auto(gulp, buildConfig);
 
-
-gulp.task('resources', function() {
-	console.log('running publish:after');
-	gulp.src([ 
-		'character/node_modules/cu-components/lib/**/*.png',
-		'character/node_modules/cu-components/lib/**/*.jpg',
-		'character/node_modules/cu-components/lib/**/*.css'
-	])
-	.pipe(debug('title', 'copy:'))
-	.pipe(gulp.dest('../publish/lib/cu-components'));
-});
