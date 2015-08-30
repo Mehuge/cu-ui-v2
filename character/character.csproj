@@ -39,8 +39,8 @@
     <Content Include="src\images\frame.png"/>
     <Content Include="src\images\health-bar.png"/>
     <Content Include="src\images\stamina-bar.png"/>
-    <TypeScriptCompile Include="src\ts\main.tsx"/>
     <Content Include="src\sass\main.scss"/>
+    <TypeScriptCompile Include="src\ts\main.tsx"/>
     <Content Include="src\images\portraits\caitsith.jpg"/>
     <Content Include="src\images\portraits\firbog.jpg"/>
     <Content Include="src\images\portraits\frostgiant.jpg"/>
