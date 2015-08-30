@@ -31,8 +31,8 @@
   <ItemGroup>
     <Content Include="src\enemytarget.ui"/>
     <Content Include="src\index.html"/>
-    <TypeScriptCompile Include="src\ts\main.tsx"/>
     <Content Include="src\sass\main.scss"/>
+    <TypeScriptCompile Include="src\ts\main.tsx"/>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
