@@ -1,0 +1,10 @@
+{
+    "name": "apitest",
+    "mainFile": "apitest/index.html",
+    "rect": {
+        "left": 0,
+        "top": 0,
+        "right": 245,
+        "bottom": 125
+    }
+}
