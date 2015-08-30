@@ -1,15 +1,15 @@
 {
-  "name": "cu-ui-character",
+  "name": "cu-ui-apitest",
   "version": "0.1.0",
-  "description": "Camelot Unchained - UI 2.0 Character Unit Frame",
-  "main": "character/index.html",
+  "description": "Camelot Unchained - UI 2.0 API Test UI",
+  "main": "apitest/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "cu-ui",
     "unitframe",
-    "character"
+    "apitest"
   ],
   "author": "mehuge@sorcerer.co.uk",
   "license": "MPL-2.0",
