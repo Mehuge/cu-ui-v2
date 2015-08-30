@@ -22,7 +22,8 @@ const EnemyTarget = React.createClass({
 
 	componentDidMount() {
 		// Start listening for character events
-		events.handlesEnemyTarget.start();
+		// FIXME: events.handlesEnemyTarget.start();
+		enemyTargetStore.start();	// Workaround
 	},
 
 	// Render the unit frame using character data

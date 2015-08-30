@@ -22,7 +22,10 @@ const Character = React.createClass({
 
 	componentDidMount() {
 		// Start listening for character events
-		events.handlesCharacter.start();
+		// FIXME: React Actions seem to be broken!!
+		events.handlesCharacter.start();		// no-op cos its broken
+		// FIXME: So directly call start, screw the action
+		characterStore.start();
 	},
 
 	// Render the unit frame using character data

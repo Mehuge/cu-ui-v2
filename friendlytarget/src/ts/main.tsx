@@ -22,7 +22,8 @@ const FriendlyTarget = React.createClass({
 
 	componentDidMount() {
 		// Start listening for FriendlyTarget events
-		events.handlesFriendlyTarget.start();
+		// FIXME: events.handlesFriendlyTarget.start();
+		friendlyTargetStore.start(); 		// Workaround
 	},
 
 	// Render the unit frame using FriendlyTarget data
