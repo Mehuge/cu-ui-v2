@@ -157,8 +157,10 @@ const RunAllOfTheThings = React.createClass({
 events.on("init", function() {
 
     /* HACK: cuAPI has a bug in that if you don't listen to the events
-     * associated with these, then you never get the initial values, so
-     * we have to start the stores early.
+     * associated with these stores very seen after the API has initialised,
+     * (50ms was too long in my test), then you never get the initial values, so
+     * we have to start the stores early, as componentDidMount() can be delayed
+     * due to Reacts use of an event queue.
      */
     CharacterStore.start(); 
     EnemyTargetStore.start(); 
