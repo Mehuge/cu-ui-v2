@@ -5,27 +5,23 @@ import events from 'cu-events';
 import { CharacterStore } from 'cu-stores';
 import { UnitFrame } from 'cu-components';
 
-const characterStore = CharacterStore.create();
-
 const Character = React.createClass({
 
 	// Hook store up to component.  Each time character data is changed,
 	// our state is updated, triggering a render
 	mixins: [
-		Reflux.connect(characterStore, 'character')
+		Reflux.connect(CharacterStore, 'character')
 	],
 
 	// Provide an initial state (TODO: is there a better way to do this?)
 	getInitialState: function() {
-		return { character: characterStore.info };
+		return { character: CharacterStore.info };
 	},
 
 	componentDidMount() {
 		// Start listening for character events
 		// FIXME: React Actions seem to be broken!!
 		events.handlesCharacter.start();		// no-op cos its broken
-		// FIXME: So directly call start, screw the action
-		characterStore.start();
 	},
 
 	// Render the unit frame using character data
@@ -42,5 +38,6 @@ const Character = React.createClass({
 });
 
 events.on("init", function() {
+	CharacterStore.start();					// HACK: for cuAPI time limited events issue
 	React.render(<Character/>, document.getElementById("cse-ui-character"));
 });

@@ -5,25 +5,23 @@ import events from 'cu-events';
 import { FriendlyTargetStore } from 'cu-stores';
 import { UnitFrame } from 'cu-components';
 
-const friendlyTargetStore = FriendlyTargetStore.create();
-
 const FriendlyTarget = React.createClass({
 
 	// Hook store up to component.  Each time FriendlyTarget data is changed,
 	// our state is updated, triggering a render
 	mixins: [
-		Reflux.connect(friendlyTargetStore, 'friendlyTarget')
+		Reflux.connect(FriendlyTargetStore, 'friendlyTarget')
 	],
 
 	// Provide an initial state (TODO: is there a better way to do this?)
 	getInitialState: function() {
-		return { friendlyTarget: friendlyTargetStore.info };
+		return { friendlyTarget: FriendlyTargetStore.info };
 	},
 
 	componentDidMount() {
 		// Start listening for FriendlyTarget events
-		// FIXME: events.handlesFriendlyTarget.start();
-		friendlyTargetStore.start(); 		// Workaround
+		// FIXME: broken, currently no-op
+		events.handlesFriendlyTarget.start();
 	},
 
 	// Render the unit frame using FriendlyTarget data
@@ -38,5 +36,6 @@ const FriendlyTarget = React.createClass({
 });
 
 events.on("init", function() {
+	FriendlyTargetStore.start(); 		// HACK for cuAPI bug
 	React.render(<FriendlyTarget/>, document.getElementById("cse-ui-friendlytarget"));
 });
