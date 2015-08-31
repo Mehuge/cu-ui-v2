@@ -53,7 +53,10 @@ const TestControlGameStore = React.createClass({
 	}
 });
 
+////////////////////////////////////////////////////////////////////////////////////////
 // Test: TestCharacterStore
+////////////////////////////////////////////////////////////////////////////////////////
+
 import { CharacterStore } from 'cu-stores';
 const TestCharacterStore = React.createClass({
     mixins: [Reflux.connect(CharacterStore, 'game')],
@@ -61,14 +64,18 @@ const TestCharacterStore = React.createClass({
         return { game: CharacterStore.info };
     },
     componentDidMount() {
-        // FIXME! events.handlesCharacter.start();
+        // FIXME! - actions don't fire to imported store
+        events.handlesCharacter.start();
     },
     render: function() {
         return (<div><h1>CharacterStore</h1><p>{ JSON.stringify(this.state.game) }</p></div>);
     }
 });
 
+////////////////////////////////////////////////////////////////////////////////////////
 // Test: TestEnemyTargetStore
+////////////////////////////////////////////////////////////////////////////////////////
+
 import { EnemyTargetStore } from 'cu-stores';
 const TestEnemyTargetStore = React.createClass({
     mixins: [Reflux.connect(EnemyTargetStore, 'enemyTarget')],
@@ -76,14 +83,18 @@ const TestEnemyTargetStore = React.createClass({
         return { enemyTarget: EnemyTargetStore.info };
     },
     componentDidMount() {
-        // FIXME! events.handlesEnemyTarget.start();
+        // FIXME! - actions don't fire to imported store
+        events.handlesEnemyTarget.start();
     },
     render: function() {
         return (<div><h1>EnemyTargetStore</h1><p>{ JSON.stringify(this.state.enemyTarget) }</p></div>);
     }
 });
 
+////////////////////////////////////////////////////////////////////////////////////////
 // Test: TestFriendlyTargetStore
+////////////////////////////////////////////////////////////////////////////////////////
+
 import { FriendlyTargetStore } from 'cu-stores';
 const TestFriendlyTargetStore = React.createClass({
     mixins: [Reflux.connect(FriendlyTargetStore, 'friendlyTarget')],
@@ -91,14 +102,18 @@ const TestFriendlyTargetStore = React.createClass({
         return { friendlyTarget: FriendlyTargetStore.info };
     },
     componentDidMount() {
-        // FIXME! events.handlesFriendlyTarget.start();
+        // FIXME! - actions don't fire to imported store
+        events.handlesFriendlyTarget.start();
     },
     render: function() {
         return (<div><h1>FriendlyTargetStore</h1><p>{ JSON.stringify(this.state.friendlyTarget) }</p></div>);
     }
 });
 
+////////////////////////////////////////////////////////////////////////////////////////
 // Test: TestAnnouncementStore
+////////////////////////////////////////////////////////////////////////////////////////
+
 import { AnnouncementsStore } from 'cu-stores';
 const TestAnnouncementsStore = React.createClass({
     mixins: [Reflux.connect(AnnouncementsStore, 'announcements')],
@@ -106,6 +121,8 @@ const TestAnnouncementsStore = React.createClass({
         return { announcements: AnnouncementsStore.info };
     },
     componentDidMount() {
+        AnnouncementsStore.start();     // HACK
+        // FIXME! - actions don't fire to imported store
         events.handlesAnnouncements.start();
     },
     render: function() {
@@ -114,7 +131,11 @@ const TestAnnouncementsStore = React.createClass({
 });
 React.render(<TestAnnouncementsStore/>, document.getElementById("cse-ui-apitest"));
 
-const Tests = React.createClass({
+////////////////////////////////////////////////////////////////////////////////////////
+// Test: Run all of the things
+////////////////////////////////////////////////////////////////////////////////////////
+
+const RunAllOfTheThings = React.createClass({
     render: function() {
         return (
             <div>
@@ -129,6 +150,10 @@ const Tests = React.createClass({
     }
 });
 
+////////////////////////////////////////////////////////////////////////////////////////
+// Wait for cuAPI to initialise
+////////////////////////////////////////////////////////////////////////////////////////
+
 events.on("init", function() {
 
     /* HACK: cuAPI has a bug in that if you don't listen to the events
@@ -140,44 +165,5 @@ events.on("init", function() {
     FriendlyTargetStore.start(); 
 
 	// Render the UI
-	React.render(<Tests/>, document.getElementById("cse-ui-apitest"));
-
-    /*
-	// Basic Reflux Action test (this is working)
-	const action : any = Reflux.createActions(["start"]);
-	console.dir(action);
-	console.dir(action.start);
-	console.dir(action.start.shouldEmit());
-	const store : any = Reflux.createStore({
-		start() {
-			console.log('test action fired');
-		},
-        init() {
-            this.listenTo(action.start, this.start);
-        }
-
-	});
-	console.dir(store);
-	action.start();
-
-	console.log('handlesControlGameScore action:-');
-	console.dir(events.handlesControlGameScore.action);
-	console.dir(events.handlesControlGameScore.action.start);
-	console.dir(events.handlesControlGameScore.action.start.shouldEmit());
-	events.handlesControlGameScore.action.start();
-    */
+	React.render(<RunAllOfTheThings/>, document.getElementById("cse-ui-apitest"));
 });
-
-/*
-
-// Basic Reflux Action test (this is working)
-// const action : any = Reflux.createActions(["start"]);
-const store : any = Reflux.createStore({
-    listenables: events.handlesAnnouncements.action,
-    start() {
-        console.log('test action fired');
-    }
-});
-events.handlesAnnouncements.start();
-
-*/
