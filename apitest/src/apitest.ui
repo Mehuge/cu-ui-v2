@@ -2,9 +2,13 @@
     "name": "apitest",
     "mainFile": "apitest/index.html",
     "rect": {
-        "left": 0,
-        "top": 0,
-        "right": 245,
-        "bottom": 125
-    }
+        "left": 600,
+        "top": 100,
+        "right": 1400,
+        "bottom": 900
+    },
+    "handlesCharacter": true,
+    "handlesEnemyTarget": true,
+    "handlesFriendlyTarget": true,
+    "handlesAnnouncements": true
 }

@@ -68,7 +68,7 @@ const TestCharacterStore = React.createClass({
         events.handlesCharacter.start();
     },
     render: function() {
-        return (<div><h1>CharacterStore</h1><p>{ JSON.stringify(this.state.game) }</p></div>);
+        return (<div><h1>Character</h1><p>{ JSON.stringify(this.state.game) }</p></div>);
     }
 });
 
@@ -87,7 +87,7 @@ const TestEnemyTargetStore = React.createClass({
         events.handlesEnemyTarget.start();
     },
     render: function() {
-        return (<div><h1>EnemyTargetStore</h1><p>{ JSON.stringify(this.state.enemyTarget) }</p></div>);
+        return (<div><h1>Enemy Target</h1><p>{ JSON.stringify(this.state.enemyTarget) }</p></div>);
     }
 });
 
@@ -106,7 +106,7 @@ const TestFriendlyTargetStore = React.createClass({
         events.handlesFriendlyTarget.start();
     },
     render: function() {
-        return (<div><h1>FriendlyTargetStore</h1><p>{ JSON.stringify(this.state.friendlyTarget) }</p></div>);
+        return (<div><h1>Friendly Target</h1><p>{ JSON.stringify(this.state.friendlyTarget) }</p></div>);
     }
 });
 
@@ -126,7 +126,7 @@ const TestAnnouncementsStore = React.createClass({
         events.handlesAnnouncements.start();
     },
     render: function() {
-        return (<div><h1>Announcements Store</h1><p>{ JSON.stringify(this.state.announcements) }</p></div>);
+        return (<div><h1>Announcements</h1><p>{ JSON.stringify(this.state.announcements) }</p></div>);
     }
 });
 React.render(<TestAnnouncementsStore/>, document.getElementById("cse-ui-apitest"));
