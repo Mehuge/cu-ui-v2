@@ -1,0 +1,14 @@
+{
+    "name": "matrix",
+    "mainFile": "matrix/index.html",
+    "rect": {
+        "left": 500,
+        "top": 200,
+        "right": 900,
+        "bottom": 700
+    },
+    "handlesCharacter": true,
+    "handlesEnemyTarget": true,
+    "handlesFriendlyTarget": true,
+    "handlesAnnouncements": true
+}

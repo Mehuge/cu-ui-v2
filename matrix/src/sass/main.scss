@@ -1,0 +1,39 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+/* Compiles to: css/main.css */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Target ONLY cse-ui-apitest contained elements */
+
+#cse-ui-matrix {
+
+    font-size: 10pt;
+    font-family: "Courier New" fixed;
+
+    #content {
+		position: relative;
+
+    	div#bg { 
+    		color: rgba(0,128,0,0.2);
+    	}
+
+    	div#matrix {
+    		position: absolute;
+    		color: #00CC00;
+    		width: 1em;
+    		word-break: break-word;
+    		background: -webkit-linear-gradient(#0f0, #060);
+    		-webkit-background-clip: text;
+    		-webkit-text-fill-color: transparent;
+    	}
+    }
+}
