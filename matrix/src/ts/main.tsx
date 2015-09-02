@@ -3,6 +3,8 @@ import * as React from 'react';
 import * as Reflux from 'reflux';
 import events from 'cu-events';
 
+declare const cuAPI : any;
+
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { ControlGameScoreStore } from 'cu-stores';
@@ -72,7 +74,7 @@ const ShowAllOfTheThings = React.createClass<any,any>({
             players = [
                 <Matrix x="19" y="3" text={this.state.score.players.arthurians}/>,
                 <Matrix x="20" y="5" text={this.state.score.players.tuathaDeDanann}/>,
-                <Matrix x="21" y="7" text={this.state.score.players.viking}/>,
+                <Matrix x="21" y="7" text={this.state.score.players.vikings}/>,
                 <Matrix x="20" y="10" text={this.state.score.players.max}/>,
             ];
         }
@@ -101,6 +103,11 @@ const ShowAllOfTheThings = React.createClass<any,any>({
                 <Matrix x="10" y="5" text={this.state.game.tuathaDeDanannScore}/>
                 <Matrix x="11" y="7" text={this.state.game.vikingScore}/>
                 {players}
+                <Matrix x="16" y="19" text={cuAPI.locationX.toFixed(2)}/>
+                <Matrix x="17" y="18" text={cuAPI.locationY.toFixed(2)}/>
+                <Matrix x="18" y="20" text={cuAPI.locationZ.toFixed(2)}/>
+                <Matrix x="9" y="15" text={cuAPI.fps.toFixed(2)}/>
+
             </div>
         );
     }
