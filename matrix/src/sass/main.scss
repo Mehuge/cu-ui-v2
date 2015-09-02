@@ -10,9 +10,10 @@ html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  cursor: default;
 }
 
-/* Target ONLY cse-ui-apitest contained elements */
+/* Target ONLY cse-ui-matrix contained elements */
 
 #cse-ui-matrix {
 
@@ -23,7 +24,7 @@ html, body {
 		position: relative;
 
     	div#bg { 
-    		color: rgba(0,128,0,0.2);
+    		color: rgba(0,128,0,0.1);
     	}
 
     	div#matrix {
