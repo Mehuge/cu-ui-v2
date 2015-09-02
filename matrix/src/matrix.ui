@@ -2,9 +2,9 @@
     "name": "matrix",
     "mainFile": "matrix/index.html",
     "rect": {
-        "left": 500,
+        "left": 525,
         "top": 200,
-        "right": 900,
+        "right": 925,
         "bottom": 700
     },
     "handlesCharacter": true,
