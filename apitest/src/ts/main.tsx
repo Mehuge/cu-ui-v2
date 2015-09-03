@@ -8,15 +8,14 @@ import events from 'cu-events';
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { ControlGameScoreStore } from 'cu-stores';
+const controlGameScore = ControlGameScoreStore.create();
 const TestControlGameScoreStore = React.createClass({
-    mixins: [Reflux.connect(ControlGameScoreStore, 'score')],
+    mixins: [Reflux.connect(controlGameScore.store, 'score')],
     getInitialState: function() {
-        return { score: ControlGameScoreStore.info };
+        return { score: controlGameScore.store.info };
     },
     componentDidMount() {
-        ControlGameScoreStore.start(); 
-        // FIXME! - actions don't fire to imported store
-        events.handlesControlGameScore.start();
+        controlGameScore.actions.start();
     },
     render: function() {
         return (
@@ -33,15 +32,14 @@ const TestControlGameScoreStore = React.createClass({
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { ControlGameStore } from 'cu-stores';
+const controlGame = ControlGameStore.create();
 const TestControlGameStore = React.createClass({
-	mixins: [Reflux.connect(ControlGameStore, 'game')],
+	mixins: [Reflux.connect(controlGame.store, 'game')],
 	getInitialState: function() {
-		return { game: ControlGameStore.info };
+		return { game: controlGame.store.info };
 	},
 	componentDidMount() {
-        ControlGameStore.start(); 
-        // FIXME! - actions don't fire to imported store
-        events.handlesControlGame.start();
+        controlGame.actions.start(); 
 	},
 	render: function() {
 		return (
@@ -58,14 +56,14 @@ const TestControlGameStore = React.createClass({
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { CharacterStore } from 'cu-stores';
+const character = CharacterStore.create();
 const TestCharacterStore = React.createClass({
-    mixins: [Reflux.connect(CharacterStore, 'game')],
+    mixins: [Reflux.connect(character.store, 'game')],
     getInitialState: function() {
-        return { game: CharacterStore.info };
+        return { game: character.store.info };
     },
     componentDidMount() {
-        // FIXME! - actions don't fire to imported store
-        events.handlesCharacter.start();
+        character.actions.start();
     },
     render: function() {
         return (<div><h1>Character</h1><p>{ JSON.stringify(this.state.game) }</p></div>);
@@ -77,14 +75,14 @@ const TestCharacterStore = React.createClass({
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { EnemyTargetStore } from 'cu-stores';
+const enemyTarget = EnemyTargetStore.create();
 const TestEnemyTargetStore = React.createClass({
-    mixins: [Reflux.connect(EnemyTargetStore, 'enemyTarget')],
+    mixins: [Reflux.connect(enemyTarget.store, 'enemyTarget')],
     getInitialState: function() {
-        return { enemyTarget: EnemyTargetStore.info };
+        return { enemyTarget: enemyTarget.store.info };
     },
     componentDidMount() {
-        // FIXME! - actions don't fire to imported store
-        events.handlesEnemyTarget.start();
+        enemyTarget.actions.start();
     },
     render: function() {
         return (<div><h1>Enemy Target</h1><p>{ JSON.stringify(this.state.enemyTarget) }</p></div>);
@@ -96,14 +94,14 @@ const TestEnemyTargetStore = React.createClass({
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { FriendlyTargetStore } from 'cu-stores';
+const friendlyTarget = FriendlyTargetStore.create();
 const TestFriendlyTargetStore = React.createClass({
-    mixins: [Reflux.connect(FriendlyTargetStore, 'friendlyTarget')],
+    mixins: [Reflux.connect(friendlyTarget.store, 'friendlyTarget')],
     getInitialState: function() {
-        return { friendlyTarget: FriendlyTargetStore.info };
+        return { friendlyTarget: friendlyTarget.store.info };
     },
     componentDidMount() {
-        // FIXME! - actions don't fire to imported store
-        events.handlesFriendlyTarget.start();
+        friendlyTarget.actions.start();
     },
     render: function() {
         return (<div><h1>Friendly Target</h1><p>{ JSON.stringify(this.state.friendlyTarget) }</p></div>);
@@ -115,15 +113,14 @@ const TestFriendlyTargetStore = React.createClass({
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { AnnouncementsStore } from 'cu-stores';
+const announcements = AnnouncementsStore.create();
 const TestAnnouncementsStore = React.createClass({
-    mixins: [Reflux.connect(AnnouncementsStore, 'announcements')],
+    mixins: [Reflux.connect(announcements.store, 'announcements')],
     getInitialState: function() {
-        return { announcements: AnnouncementsStore.info };
+        return { announcements: announcements.store.info };
     },
     componentDidMount() {
-        AnnouncementsStore.start();     // HACK
-        // FIXME! - actions don't fire to imported store
-        events.handlesAnnouncements.start();
+        announcements.actions.start();
     },
     render: function() {
         return (<div><h1>Announcements</h1><p>{ JSON.stringify(this.state.announcements) }</p></div>);
@@ -162,9 +159,9 @@ events.on("init", function() {
      * we have to start the stores early, as componentDidMount() can be delayed
      * due to Reacts use of an event queue.
      */
-    CharacterStore.start(); 
-    EnemyTargetStore.start(); 
-    FriendlyTargetStore.start(); 
+    character.actions.start(); 
+    enemyTarget.actions.start(); 
+    friendlyTarget.actions.start(); 
 
 	// Render the UI
 	React.render(<RunAllOfTheThings/>, document.getElementById("cse-ui-apitest"));

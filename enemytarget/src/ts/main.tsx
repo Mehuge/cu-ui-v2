@@ -5,23 +5,25 @@ import events from 'cu-events';
 import { EnemyTargetStore } from 'cu-stores';
 import { UnitFrame } from 'cu-components';
 
+const enemyTarget = EnemyTargetStore.create();
+
 const EnemyTarget = React.createClass({
 
 	// Hook store up to component.  Each time character data is changed,
 	// our state is updated, triggering a render
 	mixins: [
-		Reflux.connect(EnemyTargetStore, 'enemyTarget')
+		Reflux.connect(enemyTarget.store, 'enemyTarget')
 	],
 
 	// Provide an initial state (TODO: is there a better way to do this?)
 	getInitialState: function() {
-		return { enemyTarget: EnemyTargetStore.info };
+		return { enemyTarget: enemyTarget.store.info };
 	},
 
 	componentDidMount() {
 		// Start listening for character events
 		// FIXME: broken, currently no-op
-		events.handlesEnemyTarget.start();
+		enemyTarget.actions.start();
 	},
 
 	// Render the unit frame using character data
@@ -36,6 +38,6 @@ const EnemyTarget = React.createClass({
 });
 
 events.on("init", function() {
-	EnemyTargetStore.start();	// HACK for cuAPI bug
+	enemyTarget.actions.start();	// HACK for cuAPI bug
 	React.render(<EnemyTarget/>, document.getElementById("cse-ui-enemytarget"));
 });

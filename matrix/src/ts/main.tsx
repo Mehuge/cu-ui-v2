@@ -14,6 +14,13 @@ import { EnemyTargetStore } from 'cu-stores';
 import { FriendlyTargetStore } from 'cu-stores';
 import { AnnouncementsStore } from 'cu-stores';
 
+const controlGameScore = ControlGameScoreStore.create();
+const controlGame = ControlGameStore.create();
+const character = CharacterStore.create();
+const enemyTarget = EnemyTargetStore.create();
+const friendlyTarget = FriendlyTargetStore.create();
+const announcements = AnnouncementsStore.create();
+
 ////////////////////////////////////////////////////////////////////////////////////////
 
 const Matrix = React.createClass<any,any>({
@@ -29,21 +36,21 @@ const Matrix = React.createClass<any,any>({
 
 const ShowAllOfTheThings = React.createClass<any,any>({
     mixins: [
-        Reflux.connect(ControlGameScoreStore, 'score'),
-        Reflux.connect(ControlGameStore, 'game'),
-        Reflux.connect(CharacterStore, 'character'),
-        Reflux.connect(EnemyTargetStore, 'enemy'),
-        Reflux.connect(FriendlyTargetStore, 'friendly'),
-        Reflux.connect(AnnouncementsStore, 'announcements')
+        Reflux.connect(controlGameScore.store, 'score'),
+        Reflux.connect(controlGame.store, 'game'),
+        Reflux.connect(character.store, 'character'),
+        Reflux.connect(enemyTarget.store, 'enemy'),
+        Reflux.connect(friendlyTarget.store, 'friendly'),
+        Reflux.connect(announcements.store, 'announcements')
     ],
     getInitialState: function() {
         return { 
-            score: ControlGameScoreStore.info,
-            game: ControlGameStore.info,
-            character: CharacterStore.info,
-            enemy: EnemyTargetStore.info,
-            friendly: FriendlyTargetStore.info,
-            announcements: AnnouncementsStore.info,
+            score: controlGameScore.store.info,
+            game: controlGame.store.info,
+            character: character.store.info,
+            enemy: enemyTarget.store.info,
+            friendly: friendlyTarget.store.info,
+            announcements: announcements.store.info,
             matrix: []
         };
     },
@@ -120,12 +127,12 @@ const ShowAllOfTheThings = React.createClass<any,any>({
 events.on("init", function() {
 
     // Start all of the things
-    ControlGameScoreStore.start();
-    ControlGameStore.start();
-    CharacterStore.start(); 
-    EnemyTargetStore.start(); 
-    FriendlyTargetStore.start(); 
-    AnnouncementsStore.start();
+    controlGameScore.actions.start();
+    controlGame.actions.start();
+    character.actions.start(); 
+    enemyTarget.actions.start(); 
+    friendlyTarget.actions.start(); 
+    announcements.actions.start();
 
 	// Render all of the things
 	React.render(<ShowAllOfTheThings/>, document.getElementById("cse-ui-matrix"));
