@@ -10,9 +10,9 @@ import events from 'cu-events';
 import { ControlGameScoreStore } from 'cu-stores';
 const controlGameScore = ControlGameScoreStore.create();
 const TestControlGameScoreStore = React.createClass({
-    mixins: [Reflux.connect(controlGameScore.store, 'score')],
+    mixins: [Reflux.connect(controlGameScore.store, 'game')],
     getInitialState: function() {
-        return { score: controlGameScore.store.info };
+        return { game: controlGameScore.store.info };
     },
     componentDidMount() {
         controlGameScore.actions.start();
@@ -21,7 +21,8 @@ const TestControlGameScoreStore = React.createClass({
         return (
             <div>
                 <h1>Control Game Score</h1>
-                <p>{ JSON.stringify(this.state.score) }</p>
+                <p>{ JSON.stringify(this.state.game.players) }</p>
+                <p>{ JSON.stringify(this.state.game.score) }</p>
             </div>
         );
     }
