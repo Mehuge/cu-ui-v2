@@ -1,4 +1,5 @@
 /// <reference path="../tsd/tsd.d.ts" />
+/// <reference path="./react.d.ts" />
 import * as React from 'react';
 import * as Reflux from 'reflux';
 import events from 'cu-events';

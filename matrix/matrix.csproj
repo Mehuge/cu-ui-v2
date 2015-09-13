@@ -29,10 +29,11 @@
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="src\apitest.ui"/>
     <Content Include="src\index.html"/>
+    <Content Include="src\matrix.ui"/>
     <Content Include="src\sass\main.scss"/>
     <TypeScriptCompile Include="src\ts\main.tsx"/>
+    <TypeScriptCompile Include="src\ts\react.d.ts"/>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
