@@ -1,5 +1,4 @@
 /// <reference path="../tsd/tsd.d.ts" />
-/// <reference path="./react.d.ts" />
 import * as React from 'react';
 import * as Reflux from 'reflux';
 import events from 'cu-events';
@@ -26,8 +25,9 @@ const announcements = AnnouncementsStore.create();
 
 const Matrix = React.createClass<any,any>({
     render: function() {
+		const style = { "top": this.props.y + "em", "left": this.props.x + "em" };
         const element = (
-            <div id="matrix" style={{ "top": this.props.y + "em", "left": this.props.x + "em" }}>
+            <div id="matrix" style={style}>
                 {this.props.text}
             </div>
         );
