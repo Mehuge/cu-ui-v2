@@ -14,4 +14,11 @@ module.exports = {
   build: {
     ui_nested: false,
   },
+  server: {
+    inject: {
+    	scripts_before: [
+    		"node_modules/cu-fake-api/lib/main.js"
+    	]
+  	}
+  }
 };
