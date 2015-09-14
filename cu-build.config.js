@@ -9,7 +9,7 @@ module.exports = {
   path: __dirname,
   name: 'multi',
   publish: {
-    dest: 'publish',
+    dest:  __dirname + '/publish',
   },
   build: {
     ui_nested: false,
