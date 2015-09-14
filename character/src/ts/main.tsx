@@ -5,7 +5,7 @@ import events from 'cu-events';
 import { CharacterStore } from 'cu-stores';
 import { UnitFrame } from 'cu-components';
 
-const character = CharacterStore.create();
+const character : any = CharacterStore.create();
 
 const Character = React.createClass({
 
@@ -22,13 +22,13 @@ const Character = React.createClass({
 
 	componentDidMount() {
 		// Start listening for character events
-		// FIXME: React Actions seem to be broken!!
 		character.actions.start();		// no-op cos its broken
 	},
 
 	// Render the unit frame using character data
 	render: function() {
 		var state = this.state, character = state.character;
+		debugger;
 		return (
 			<UnitFrame
 				className="character"
@@ -39,7 +39,12 @@ const Character = React.createClass({
 	}
 });
 
+	alert('wait init');
+
 events.on("init", function() {
+	alert('init done');
+	console.log('calling character.actions.start()');
+	debugger;
 	character.actions.start();					// HACK: for cuAPI time limited events issue
 	React.render(<Character/>, document.getElementById("cse-ui-character"));
 });

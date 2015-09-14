@@ -5,7 +5,7 @@ import events from 'cu-events';
 import { EnemyTargetStore } from 'cu-stores';
 import { UnitFrame } from 'cu-components';
 
-const enemyTarget = EnemyTargetStore.create();
+const enemyTarget : any = EnemyTargetStore.create();
 
 const EnemyTarget = React.createClass({
 

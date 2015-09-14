@@ -2,14 +2,15 @@
 import * as React from 'react';
 import * as Reflux from 'reflux';
 import events from 'cu-events';
+debugger;
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Test: ControlGameScoreStore
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { ControlGameScoreStore } from 'cu-stores';
-const controlGameScore = ControlGameScoreStore.create();
-const TestControlGameScoreStore = React.createClass({
+const controlGameScore : any = ControlGameScoreStore.create();
+const TestControlGameScore = React.createClass({
     mixins: [Reflux.connect(controlGameScore.store, 'game')],
     getInitialState: function() {
         return { game: controlGameScore.store.info };
@@ -33,8 +34,8 @@ const TestControlGameScoreStore = React.createClass({
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { ControlGameStore } from 'cu-stores';
-const controlGame = ControlGameStore.create();
-const TestControlGameStore = React.createClass({
+const controlGame : any  = ControlGameStore.create();
+const TestControlGame = React.createClass({
 	mixins: [Reflux.connect(controlGame.store, 'game')],
 	getInitialState: function() {
 		return { game: controlGame.store.info };
@@ -57,17 +58,17 @@ const TestControlGameStore = React.createClass({
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { CharacterStore } from 'cu-stores';
-const character = CharacterStore.create();
-const TestCharacterStore = React.createClass({
-    mixins: [Reflux.connect(character.store, 'game')],
+const character : any  = CharacterStore.create();
+const TestCharacter = React.createClass({
+    mixins: [Reflux.connect(character.store, 'character')],
     getInitialState: function() {
-        return { game: character.store.info };
+        return { character: character.store.info };
     },
     componentDidMount() {
         character.actions.start();
     },
     render: function() {
-        return (<div><h1>Character</h1><p>{ JSON.stringify(this.state.game) }</p></div>);
+        return (<div><h1>Character</h1><p>{ JSON.stringify(this.state.character) }</p></div>);
     }
 });
 
@@ -76,8 +77,8 @@ const TestCharacterStore = React.createClass({
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { EnemyTargetStore } from 'cu-stores';
-const enemyTarget = EnemyTargetStore.create();
-const TestEnemyTargetStore = React.createClass({
+const enemyTarget : any  = EnemyTargetStore.create();
+const TestEnemyTarget = React.createClass({
     mixins: [Reflux.connect(enemyTarget.store, 'enemyTarget')],
     getInitialState: function() {
         return { enemyTarget: enemyTarget.store.info };
@@ -95,8 +96,8 @@ const TestEnemyTargetStore = React.createClass({
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { FriendlyTargetStore } from 'cu-stores';
-const friendlyTarget = FriendlyTargetStore.create();
-const TestFriendlyTargetStore = React.createClass({
+const friendlyTarget : any  = FriendlyTargetStore.create();
+const TestFriendlyTarget = React.createClass({
     mixins: [Reflux.connect(friendlyTarget.store, 'friendlyTarget')],
     getInitialState: function() {
         return { friendlyTarget: friendlyTarget.store.info };
@@ -114,8 +115,8 @@ const TestFriendlyTargetStore = React.createClass({
 ////////////////////////////////////////////////////////////////////////////////////////
 
 import { AnnouncementsStore } from 'cu-stores';
-const announcements = AnnouncementsStore.create();
-const TestAnnouncementsStore = React.createClass({
+const announcements : any  = AnnouncementsStore.create();
+const TestAnnouncements = React.createClass({
     mixins: [Reflux.connect(announcements.store, 'announcements')],
     getInitialState: function() {
         return { announcements: announcements.store.info };
@@ -127,7 +128,6 @@ const TestAnnouncementsStore = React.createClass({
         return (<div><h1>Announcements</h1><p>{ JSON.stringify(this.state.announcements) }</p></div>);
     }
 });
-React.render(<TestAnnouncementsStore/>, document.getElementById("cse-ui-apitest"));
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Test: Run all of the things
@@ -137,12 +137,12 @@ const RunAllOfTheThings = React.createClass({
     render: function() {
         return (
             <div>
-                <TestControlGameScoreStore/>
-                <TestControlGameStore/>
-                <TestCharacterStore/>
-                <TestEnemyTargetStore/>
-                <TestFriendlyTargetStore/>
-                <TestAnnouncementsStore/>
+                <TestControlGameScore/>
+                <TestControlGame/>
+                <TestCharacter/>
+                <TestEnemyTarget/>
+                <TestFriendlyTarget/>
+                <TestAnnouncements/>
             </div>
         );
     }

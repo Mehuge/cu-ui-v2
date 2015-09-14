@@ -5,7 +5,7 @@ import events from 'cu-events';
 import { FriendlyTargetStore } from 'cu-stores';
 import { UnitFrame } from 'cu-components';
 
-const friendlyTarget = FriendlyTargetStore.create();
+const friendlyTarget : any = FriendlyTargetStore.create();
 
 const FriendlyTarget = React.createClass({
 

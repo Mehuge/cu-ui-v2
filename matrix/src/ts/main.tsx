@@ -14,12 +14,12 @@ import { EnemyTargetStore } from 'cu-stores';
 import { FriendlyTargetStore } from 'cu-stores';
 import { AnnouncementsStore } from 'cu-stores';
 
-const controlGameScore = ControlGameScoreStore.create();
-const controlGame = ControlGameStore.create();
-const character = CharacterStore.create();
-const enemyTarget = EnemyTargetStore.create();
-const friendlyTarget = FriendlyTargetStore.create();
-const announcements = AnnouncementsStore.create();
+const controlGameScore : any = ControlGameScoreStore.create();
+const controlGame : any = ControlGameStore.create();
+const character : any = CharacterStore.create();
+const enemyTarget : any = EnemyTargetStore.create();
+const friendlyTarget : any = FriendlyTargetStore.create();
+const announcements : any = AnnouncementsStore.create();
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
