@@ -39,12 +39,7 @@ const Character = React.createClass({
 	}
 });
 
-	alert('wait init');
-
 events.on("init", function() {
-	alert('init done');
-	console.log('calling character.actions.start()');
-	debugger;
 	character.actions.start();					// HACK: for cuAPI time limited events issue
 	React.render(<Character/>, document.getElementById("cse-ui-character"));
 });
