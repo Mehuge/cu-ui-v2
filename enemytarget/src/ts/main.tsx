@@ -32,7 +32,9 @@ const EnemyTarget = React.createClass({
 		return (<UnitFrame
 				name={enemyTarget.name} race={enemyTarget.race}
 				health={enemyTarget.health} maxHealth={enemyTarget.maxHealth}
-				stamina={enemyTarget.stamina} maxStamina={enemyTarget.maxStamina} />
+				stamina={enemyTarget.stamina} maxStamina={enemyTarget.maxStamina}
+				injuries={enemyTarget.injuries} 
+				/>
 			);
 	}
 });

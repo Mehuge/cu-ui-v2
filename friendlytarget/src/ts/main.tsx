@@ -32,7 +32,9 @@ const FriendlyTarget = React.createClass({
 		return (<UnitFrame
 				name={friendlyTarget.name} race={friendlyTarget.race}
 				health={friendlyTarget.health} maxHealth={friendlyTarget.maxHealth}
-				stamina={friendlyTarget.stamina} maxStamina={friendlyTarget.maxStamina} />
+				stamina={friendlyTarget.stamina} maxStamina={friendlyTarget.maxStamina}
+				injuries={friendlyTarget.injuries}
+        />
 			);
 	}
 });

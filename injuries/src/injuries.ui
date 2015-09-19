@@ -1,0 +1,11 @@
+{
+	"name": "injuries",
+	"mainFile": "injuries/index.html",
+	"rect": {
+		"left": 5,
+		"top": 75,
+		"right": 245,
+		"bottom": 250
+	},
+	"handlesCharacter": true
+}

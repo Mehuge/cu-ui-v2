@@ -12,12 +12,14 @@ module.exports = {
     dest:  __dirname + '/publish',
   },
   build: {
+    install_npm: false, // if npm should be installed during install task
+    install_tsd: true, // if tsd should be installed during install task
     ui_nested: false,
   },
   server: {
     inject: {
     	scripts_before: [
-    		"node_modules/cu-fake-api/lib/main.js"
+    		"./lib/cu-fake-api/src/main.js"
     	]
   	}
   }

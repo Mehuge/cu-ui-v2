@@ -1,0 +1,28 @@
+{
+  "name": "cu-ui-injuries",
+  "version": "0.1.0",
+  "description": "Camelot Unchained - UI 2.0 Injuries Frame",
+  "main": "injuries/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cu-ui",
+    "injuries"
+  ],
+  "author": "mehuge@sorcerer.co.uk",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "cu-components": "git+https://github.com/Mehuge/cu-components.git#master",
+    "cu-core": "^0.1.3",
+    "cu-events": "git+https://github.com/Mehuge/cu-events.git#master",
+    "cu-stores": "git+https://github.com/Mehuge/cu-stores.git#master",
+    "react": "0.13.3",
+    "reflux": "^0.2.12",
+    "reflux-tsd": "git+https://github.com/saddieeiddas/reflux-tsd.git#master"
+  },
+  "devDependencies": {
+    "cu-ui-build-tools": "git+https://github.com/CUModSquad/cu-build-tools.git#master",
+    "gulp": "^3.9.0"
+  }
+}

@@ -1,0 +1,21 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#cse-ui-injuries {
+  #injury-wounds {
+      left: 195px;
+  }
+  #injury-bar {
+      width: 154px;
+      background-size: 154px 14px;
+  }
+  #injury-text {
+      width: 154px;
+  }
+}

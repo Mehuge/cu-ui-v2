@@ -1,11 +1,11 @@
 {
-    "name": "friendlytarget",
-    "mainFile": "friendlytarget/index.html",
-    "rect": {
-        "left": 20,
-        "top": 150,
-        "right": 198,
-        "bottom": 289
-    },
-    "handlesFriendlyTarget": true
+	"name": "friendlytarget",
+	"mainFile": "friendlytarget/index.html",
+	"rect": {
+		"left": 300,
+		"top": 150,
+		"right": 478,
+		"bottom": 289
+	},
+	"handlesFriendlyTarget": true
 }
