@@ -1,3 +1,5 @@
+pause "Use with caution!  This will setup a new project tree in a folder named CUModSquad in the current directory.  This is a destructive process.  Press ^C now if you are not certain you want to do this"
+
 : Install some global commands
 call npm install rimraf -g
 call npm install react -g
