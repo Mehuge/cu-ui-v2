@@ -1,6 +1,6 @@
 {
     "name": "matrix",
-    "mainFile": "matrix/index.html",
+    "mainFile": "index.html",
     "rect": {
         "left": 525,
         "top": 200,

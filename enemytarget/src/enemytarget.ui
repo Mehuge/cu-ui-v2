@@ -1,6 +1,6 @@
 {
     "name": "enemytarget",
-    "mainFile": "enemytarget/index.html",
+    "mainFile": "index.html",
     "rect": {
         "left": 300,
         "top": 9,

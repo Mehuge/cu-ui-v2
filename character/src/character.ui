@@ -1,6 +1,6 @@
 {
     "name": "character",
-    "mainFile": "character/index.html",
+    "mainFile": "index.html",
     "rect": {
         "left": 0,
         "top": 0,

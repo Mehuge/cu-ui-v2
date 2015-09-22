@@ -1,6 +1,6 @@
 {
     "name": "apitest",
-    "mainFile": "apitest/index.html",
+    "mainFile": "index.html",
     "rect": {
         "left": 600,
         "top": 100,

@@ -1,6 +1,6 @@
 {
 	"name": "friendlytarget",
-	"mainFile": "friendlytarget/index.html",
+	"mainFile": "index.html",
 	"rect": {
 		"left": 300,
 		"top": 150,

@@ -14,7 +14,6 @@ module.exports = {
   build: {
     install_npm: false, // if npm should be installed during install task
     install_tsd: true, // if tsd should be installed during install task
-    ui_nested: false,
   },
   server: {
     inject: {
