@@ -1,0 +1,13 @@
+{
+  "name": "mehuge-bct",
+  "mainFile": "index.html",
+  "rect": {
+    "left": 560,
+    "top": 250, 
+    "right": 880,
+    "bottom": 350
+  },
+  "handlesCharacter": true,
+  "handlesEnemyTarget": true,
+  "handlesFriendlyTarget": true
+}
