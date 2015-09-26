@@ -1,13 +1,14 @@
 {
-  "name": "cu-ui-matrix",
+  "name": "mehuge-matrix",
   "version": "0.1.0",
   "description": "Camelot Unchained - UI 2.0 The Matrix",
-  "main": "matrix/index.html",
+  "main": "mehuge-matrix/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "cu-ui",
+    "mehuge",
     "matrix"
   ],
   "author": "mehuge@sorcerer.co.uk",

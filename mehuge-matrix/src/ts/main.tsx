@@ -45,7 +45,7 @@ const ShowAllOfTheThings = React.createClass<any,any>({
         Reflux.connect(announcements.store, 'announcements')
     ],
     getInitialState: function() {
-        return { 
+        return {
             score: controlGameScore.store.info,
             game: controlGame.store.info,
             character: character.store.info,
@@ -130,11 +130,11 @@ events.on("init", function() {
     // Start all of the things
     controlGameScore.actions.start();
     controlGame.actions.start();
-    character.actions.start(); 
-    enemyTarget.actions.start(); 
-    friendlyTarget.actions.start(); 
+    character.actions.start();
+    enemyTarget.actions.start();
+    friendlyTarget.actions.start();
     announcements.actions.start();
 
 	// Render all of the things
-	React.render(<ShowAllOfTheThings/>, document.getElementById("cse-ui-matrix"));
+	React.render(<ShowAllOfTheThings/>, document.getElementById("mehuge-matrix"));
 });
