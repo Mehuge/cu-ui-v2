@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-var name = 'apitest';
+var name = 'mehuge-apitest';
 
 module.exports = {
   type: 'module',

@@ -41,7 +41,7 @@ const TestControlGame = React.createClass({
 		return { game: controlGame.store.info };
 	},
 	componentDidMount() {
-        controlGame.actions.start(); 
+        controlGame.actions.start();
 	},
 	render: function() {
 		return (
@@ -160,10 +160,10 @@ events.on("init", function() {
      * we have to start the stores early, as componentDidMount() can be delayed
      * due to Reacts use of an event queue.
      */
-    character.actions.start(); 
-    enemyTarget.actions.start(); 
-    friendlyTarget.actions.start(); 
+    character.actions.start();
+    enemyTarget.actions.start();
+    friendlyTarget.actions.start();
 
 	// Render the UI
-	React.render(<RunAllOfTheThings/>, document.getElementById("cse-ui-apitest"));
+	React.render(<RunAllOfTheThings/>, document.getElementById("mehuge-apitest"));
 });

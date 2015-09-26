@@ -1,14 +1,15 @@
 {
-  "name": "cu-ui-apitest",
+  "name": "mehuge-apitest",
   "version": "0.1.0",
   "description": "Camelot Unchained - UI 2.0 API Test UI",
-  "main": "apitest/index.html",
+  "main": "mehuge-apitest/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "cu-ui",
     "unitframe",
+    "mehuge",
     "apitest"
   ],
   "author": "mehuge@sorcerer.co.uk",
