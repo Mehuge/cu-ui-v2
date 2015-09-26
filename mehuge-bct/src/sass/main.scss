@@ -20,12 +20,14 @@ html, body {
   .slots {
     width: 320px;
     height: 100px;
+
     .slot {
       position: relative;
       width: 60px;
       margin: 0 2px;
       height: 100%;
       float: left;
+
       .sprite {
         position: absolute;
         width: 100%;
@@ -34,6 +36,17 @@ html, body {
       .self.damage {
         color: white;
       	font-size: 16pt;
+      }
+      .self.damage.part-0 {
+        color: rgb(240,240,240);
+      }
+      .self.damage.part-1 {
+        color: rgb(220,220,220);
+        font-size: 12pt;
+      }
+      .self.damage.part-2 {
+        color: rgb(200,200,200);
+        font-size: 10pt;
       }
       .self.heal {
         color: rgb(0,255,0);
@@ -45,7 +58,7 @@ html, body {
       }
       .self.stamina.recover {
         color: rgb(76, 255, 0);
-        font-size: 8pt;
+        font-size: 9pt;
         opacity: 0.4;
       }
       .friendly.damage {

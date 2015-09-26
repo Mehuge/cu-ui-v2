@@ -102,7 +102,7 @@ const Slot = React.createClass<any,any>({
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const SelfDamage = React.createClass<any,any>({
+const SelfInjuries = React.createClass<any,any>({
   getInitialState() {
     return { sprites: [] };
   },
@@ -111,21 +111,27 @@ const SelfDamage = React.createClass<any,any>({
     this._timer = setInterval(() => {
       self.setState({ sprites: Animator.animate(self.state.sprites) });
     }, 100);
+    this._injuries = [];
   },
   render() {
-    function checkHealth(health : number, state : any) {
+    function checkHealth(part: number, health : number, old : number, state : any) {
       // If health has reduced, then add a new sprite to show the damage
-      if (health < state.health) {
+      if (old !== undefined && health < old) {
         // we have taken damage
         const sprite = new Sprite();
-        sprite.type = "self damage";
-        sprite.text = (state.health - health).toString();
+        sprite.type = "self damage part-" + part;
+        sprite.text = (old - health).toString();
         state.sprites.push(sprite);
         Animator.stagger(state.sprites);
       }
     }
-    checkHealth(this.props.health, this.state);
-    this.state.health = this.props.health;
+    const injuries = this.props.character.injuries;
+    if (injuries) {
+      for (let i = 0; i < injuries.length; i++) {
+        checkHealth(injuries[i].part, injuries[i].health, this._injuries[i], this.state);
+        this._injuries[i] = injuries[i].health;
+      }
+    }
     return (
       <Slot sprites={this.state.sprites}/>
     );
@@ -134,7 +140,7 @@ const SelfDamage = React.createClass<any,any>({
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const SelfHeals = React.createClass<any,any>({
+const SelfBlood = React.createClass<any,any>({
   getInitialState() {
     return { sprites: [] };
   },
@@ -147,11 +153,11 @@ const SelfHeals = React.createClass<any,any>({
   render() {
     function checkHealth(health : number, state : any) {
       // If health has reduced, then add a new sprite to show the damage
-      if (health > state.health) {
+      if (state.health !== undefined && state.health !== health) {
         // we have taken damage
         const sprite = new Sprite();
-        sprite.type = "self heal";
-        sprite.text = "+" + (health - state.health).toString();
+        sprite.type = "self " + (state.health > health ? "damage" : "heal");
+        sprite.text = (state.health > health ? "" : "+") + Math.abs(health - state.health).toString();
         state.sprites.push(sprite);
         Animator.stagger(state.sprites);
       }
@@ -179,11 +185,11 @@ const SelfStamina = React.createClass<any,any>({
   render() {
     function checkHealth(stamina : number, state : any) {
       // If health has reduced, then add a new sprite to show the damage
-      if (stamina != state.stamina) {
+      if (state.stamina !== undefined && stamina != state.stamina) {
         // we have taken damage
         const sprite = new Sprite();
-        sprite.type = "self stamina" + (stamina > state.stamina ? " recover" : ""); 
-        sprite.text = Math.abs(state.stamina - stamina).toString();
+        sprite.type = "self stamina" + (stamina > state.stamina ? " recover" : "");
+        sprite.text = (stamina > state.stamina ? "+" : "") + Math.abs(state.stamina - stamina).toString();
         state.sprites.push(sprite);
         Animator.stagger(state.sprites);
       }
@@ -211,7 +217,7 @@ const Enemy = React.createClass<any,any>({
   render() {
     function checkHealth(health : number, state : any) {
       // If health has reduced, then add a new sprite to show the damage
-      if (health != state.health) {
+      if (state.health !== undefined && health != state.health) {
         // we have taken damage
         const sprite = new Sprite();
         sprite.type = "enemy " + (health > state.health ? "heal" : "damage");
@@ -243,7 +249,7 @@ const Friendly = React.createClass<any,any>({
   render() {
     function checkHealth(health : number, state : any) {
       // If health has reduced, then add a new sprite to show the damage
-      if (health != state.health) {
+      if (state.health !== undefined && health != state.health) {
         // we have taken damage
         const sprite = new Sprite();
         sprite.type = "friendly " + (health > state.health ? "heal" : "damage");
@@ -284,11 +290,11 @@ const BasicCombatText = React.createClass<any,any>({
   render() {
     return (
       <div className="slots">
-        <Friendly name="friendly" friendly={this.state.friendly}/>
-        <SelfStamina name="self-stamina" stamina={this.state.character.stamina}/>
-        <SelfHeals name="self-heals" health={this.state.character.health}/>
-        <SelfDamage name="self-damage" health={this.state.character.health}/>
-        <Enemy name="enemy" enemy={this.state.enemy}/>
+        <Friendly friendly={this.state.friendly}/>
+        <SelfStamina stamina={this.state.character.stamina}/>
+        <SelfBlood health={this.state.character.health}/>
+        <SelfInjuries character={this.state.character}/>
+        <Enemy enemy={this.state.enemy}/>
       </div>
     );
   }
